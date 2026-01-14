@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>おにぎり屋ひとにぎり｜ランディングページ</title>
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body>
+  <!-- ヘッダー -->
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="TOPへ">
+        <span class="brand-badge">海苔</span>
+        <span>おにぎり屋ひとにぎり（仮）</span>
+      </a>
+
+      <!-- ハンバーガーメニュー -->
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <!-- メニューいちらん -->
+    <nav class="top-menu" id="topMenu" aria-label="グローバルメニュー">
+      <ul class="menu-list">
+        <li><a href="#top">TOP</a></li>
+        <li><a href="#kodawari">こだわり</a></li>
+        <li><a href="#campaign">キャンペーン</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<!-- 注文用モーダル -->
+<div class="modal-backdrop" id="orderModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-panel" role="document">
+      <button class="modal-close" id="closeOrderModal" type="button" aria-label="閉じる">×</button>
+  
+      <div class="modal-body">
+        <h3 class="modal-title">お客様情報</h3>
+        <div class="modal-section">
+          <div class="modal-row">
+            <label class="modal-label" for="m_email">メールアドレス</label>
+            <input class="modal-input" id="m_email" type="email" placeholder="">
+          </div>
+          <div class="modal-row">
+            <label class="modal-label" for="m_name">お名前</label>
+            <input class="modal-input" id="m_name" type="text" placeholder="">
+          </div>
+          <div class="modal-row">
+            <label class="modal-label" for="m_tel">電話番号</label>
+            <input class="modal-input" id="m_tel" type="tel" placeholder="">
+          </div>
+        </div>
+  
+        <h3 class="modal-title">住所</h3>
+        <div class="modal-section">
+          <div class="modal-row">
+            <label class="modal-label" for="m_zip">郵便番号</label>
+            <input class="modal-input" id="m_zip" type="text" placeholder="">
+          </div>
+  
+          <div class="modal-row">
+            <label class="modal-label" for="m_pref">都道府県</label>
+            <select class="modal-input" id="m_pref">
+              <option value="">選択してください</option>
+              <option>東京都</option>
+              <option>神奈川県</option>
+              <option>埼玉県</option>
+              <option>千葉県</option>
+            </select>
+          </div>
+  
+          <div class="modal-row">
+            <label class="modal-label" for="m_city">市区町村</label>
+            <input class="modal-input" id="m_city" type="text" placeholder="">
+          </div>
+  
+          <div class="modal-row">
+            <label class="modal-label" for="m_addr">番地</label>
+            <input class="modal-input" id="m_addr" type="text" placeholder="">
+          </div>
+  
+          <div class="modal-row">
+            <label class="modal-label" for="m_building">建物名・部屋番号</label>
+            <input class="modal-input" id="m_building" type="text" placeholder="">
+          </div>
+        </div>
+  
+        <h3 class="modal-title">注文内容</h3>
+        <div class="modal-section">
+          <div class="order-grid">
+            <div class="order-item">
+              <div class="order-name">塩むすび</div>
+              <div class="order-qty">
+                <input class="qty-input" type="number" min="0" value="0">
+                <span class="qty-unit">個</span>
+              </div>
+            </div>
+  
+            <div class="order-item">
+              <div class="order-name">焼きおにぎり（みそ）</div>
+              <div class="order-qty">
+                <input class="qty-input" type="number" min="0" value="0">
+                <span class="qty-unit">個</span>
+              </div>
+            </div>
+  
+            <div class="order-item">
+              <div class="order-name">焼きおにぎり（あさり）</div>
+              <div class="order-qty">
+                <input class="qty-input" type="number" min="0" value="0">
+                <span class="qty-unit">個</span>
+              </div>
+            </div>
+  
+            <div class="order-item">
+              <div class="order-name">焼きおにぎり（ししとう）</div>
+              <div class="order-qty">
+                <input class="qty-input" type="number" min="0" value="0">
+                <span class="qty-unit">個</span>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <button class="order-submit" type="button" id="submitOrder">注文送信</button>
+      </div>
+    </div>
+  </div>
+  
+
+  <main>
+    <!-- トップ画面 -->
+    <section id="top">
+      <div class="fv-inner">
+        <div class="vertical-box">
+          <div class="vertical-text">
+            遠い昔から親しまれ続ける<br>
+            日本の伝統料理「おにぎり」<br>
+            丹精込めて作りました。
+          </div>
+        </div>
+
+        <!-- 円形切り取り画像 -->
+        <div class="fv-circles">
+            <img class="ph-circle" src="./img/img_tenMusu.jpg">
+            <img class="ph-circle" src="./img/img_sisitoMIso.jpg">
+            <img class="ph-circle" src="./img/img_salt01.jpg">
+          </div>
+      </div>
+    </section>
+
+    <!-- おにぎりや看板セクション-->
+    <section class="bg-white">
+      <div class="wrap">
+        <img src="img/logo.png">
+      </div>
+    </section>
+
+<!-- セクション２ -->
+<section class="bg-navy section-2">
+    <div class="wrap">
+      <div class="s2-grid">
+        <!-- 左に画像 -->
+        <div class="s2-left">
+          <img class="s2-left-img" src="img/img_asariYaki.png">
+        </div>
+  
+        <!--明るめの茶色背景-->
+        <div class="s2-card">
+          <div class="s2-media">
+            <!-- 画像挿入用 -->
+            <img class="s2-card-img" src="img/img_salt01.jpg">
+            <!-- 画像に上書きするテキスト-->
+            <div class="s2-overlay">
+              <p class="s2-overlay-text">
+                並ばずに<br>
+                受け取れます！
+              </p>
+            </div>
+          </div>
+  
+          <!-- 下の余白に別テキスト -->
+          <div class="s2-bottom">
+            <p class="s2-bottom-text">
+              モバイルオーダー<br>
+              はじめました
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+    <!-- セクション３ ちゅうもんボタン？ -->
+    <section class="bg-white">
+        <div class="wrap cta-wrap">
+          <button class="cta-image-btn" id="openOrderModal" type="button" aria-haspopup="dialog" aria-controls="orderModal">
+            <img src="img/cta_btn_pc.png" alt="注文する">
+          </button>
+        </div>
+      </section>
+      
+
+<!-- 後付けセクション-->
+<section class="section-new">
+    <div class="wrap section-new-inner">
+      <h2 class="section-new-title">こだわり</h2>
+  
+      <div class="section-new-text">
+        <p>
+          お母さんやお父さんが握ってくれたおにぎり。<br>
+          思い出してみると、何か特別なことをしているわけではないのに、<br>
+          なぜだか美味しいと感じた思い出はありませんか？
+        </p>
+        <p>
+          ひとにぎりでは、そんな大切な誰かが作ってくれたおにぎりを、<br>
+          再現できるように手作りにこだわっています。
+        </p>
+      </div>
+  
+      <!-- 右下の丸型画像 -->
+      <img class="section-new-circle" src="img/img_salt02.jpg" alt="">
+    </div>
+  </section>
+  
+
+
+    <!-- セクション４-->
+    <section class="bg-white" id="kodawari">
+      <div class="wrap">
+        <div class="grid two">
+          <!-- 画像欄 -->
+          <img class="section-new-circle-1" src="img/img_takana.jpg">
+
+          <!-- きゃんぺ文章 -->
+          <div class="kodawari-text">
+            <h3>ただいま公式Xにて</h3>
+            <p class="muted1">
+                該当ポストのリポスト&フォローで<br>
+            <p style="color: rgb(255, 0, 0);" class="muted2">
+                １００円割クーポンが当たる
+            <p class="muted3">
+                キャンペーン実施中！！
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- セクション⑤ -->
+    <section class="bg-white" id="campaign">
+      <div class="wrap">
+
+        <div class="grid two">
+          <!-- 左：画像 -->
+
+
+          <!-- 右：紺色枠 + 文章 -->
+
+        </div>
+
+        <!-- X画像button -->
+        <a class="XiconBtn" href="https://x.com/?lang=ja" target="_blank" rel="noopener" aria-label="リンクを開く"></a>
+          <img class="Xicon" src="img/x_icon1.png" alt="">
+        
+      </div>
+    </section>
+
+    <!-- お問い合わせセクション -->
+    <section class="bg-tan" id="contact">
+      <h2 class="contact-title">お問い合わせ</h2>
+
+      <div class="form-card">
+        <form class="form-grid" id="contactForm">
+          <div class="row">
+            <label for="name">お名前</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="名前を入力">
+          </div>
+
+          <div class="row">
+            <label for="email">メールアドレス</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="メールアドレスを入力">
+          </div>
+
+          <div class="row">
+            <label for="tel">電話番号</label>
+            <input id="tel" name="tel" type="tel" autocomplete="tel" placeholder="電話番号を入力（任意）">
+          </div>
+
+          <div class="row row-top">
+            <label for="message" class="label-top">お問い合わせ内容</label>
+            <div>
+              <textarea id="message" name="message" placeholder="お問い合わせ内容をご記入ください"></textarea>
+
+              <!-- 住所憑依 -->
+              <div class="contact-note">
+
+                <iframe class="if-rame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1926.9216526106018!2d139.37050682672108!3d35.6848062384362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018e1e47a10f0d5%3A0x349765c12fd5e18c!2z44GG44Gq44GO6auY54Cs!5e0!3m2!1sja!2sjp!4v1768022510401!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                おにぎり屋ひとにぎり
+                〒０００－００００
+                東京都○○区○○１－２－３
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-actions">
+            <button class="btn" type="submit">送信</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+      <div class="footer-links">企業情報　採用情報　当店へのお問い合わせ</div>
+      <div class="copyright">©Hitonigiri Co.Ltd 20XX</div>
+    </footer>
+  </main>
+
+  <!-- ページTOPボタン -->
+  <button id="toTop" aria-label="ページTOPへ">ページTOPへ</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
